@@ -6,10 +6,15 @@ class StockContainer extends Component {
   render() {
     return (
       <div>
-        <h2>Stocks</h2>
+        <h2>Stonks</h2>
         {
-          //render the list of stocks here
-          //GITHUB PLZ WHY ARE YOU LIKE THIS?
+          this.props.stonks.map(stonk => {
+            return <Stock
+              key={stonk.id}
+              name={stonk.name}
+              price={stonk.price}
+            />
+          })
         }
       </div>
     );
