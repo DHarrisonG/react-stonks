@@ -9,6 +9,7 @@ class StockContainer extends Component {
         <h2>Stocks</h2>
         {
           //render the list of stocks here
+          //GITHUB PLZ WHY ARE YOU LIKE THIS?
         }
       </div>
     );
