@@ -6,7 +6,8 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      stonks: []
+      stonks: [],
+      myStonks: []
     }
   }
   componentDidMount = () => {
@@ -24,13 +25,26 @@ class App extends Component {
     })
   }
 
+  handleClick = (id) => {
+    console.log("Ayyy stonks")
+    this.setState({
+      myStonks: [...this.state.myStonks, this.state.stonks.find( stonk => stonk.id === id ) ]
+    })
+    
+    
+  }
+
 
 
   render() {
     return (
       <div>
         <Header/>
-        <MainContainer stonks={this.state.stonks}/>
+        <MainContainer 
+        stonks={this.state.stonks}
+        myStonks={this.state.myStonks}
+        handleClick={this.handleClick}
+        />
       </div>
     );
   }
