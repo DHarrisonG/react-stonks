@@ -8,20 +8,25 @@ class MainContainer extends Component {
   render() {
     return (
       <div>
-        <SearchBar/>
+        <SearchBar />
 
-          <div className="row">
-            <div className="col-8">
+        <div className="row">
+          <div className="col-8">
 
-              <StockContainer stonks={this.props.stonks}/>
+            <StockContainer
+              stonks={this.props.stonks}
+              handleClick={this.props.handleClick}
+            />
 
-            </div>
-            <div className="col-4">
-
-              <PortfolioContainer/>
-
-            </div>
           </div>
+          <div className="col-4">
+
+            <PortfolioContainer
+              myStonks={this.props.myStonks}
+            />
+
+          </div>
+        </div>
       </div>
     );
   }
