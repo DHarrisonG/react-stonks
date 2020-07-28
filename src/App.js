@@ -7,7 +7,8 @@ class App extends Component {
     super()
     this.state = {
       stonks: [],
-      myStonks: []
+      myStonks: [],
+      type: null
     }
   }
   componentDidMount = () => {
@@ -29,9 +30,15 @@ class App extends Component {
     console.log("Ayyy stonks")
     this.setState({
       myStonks: [...this.state.myStonks, this.state.stonks.find( stonk => stonk.id === id ) ]
+    })  
+  }
+
+  handleType = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      type: e.target.value
     })
-    
-    
+
   }
 
 
@@ -41,9 +48,10 @@ class App extends Component {
       <div>
         <Header/>
         <MainContainer 
-        stonks={this.state.stonks}
+        stonks={this.state.type === null ? this.state.stonks : this.state.stonks.filter( stonk =>  stonk.type === this.state.type)}
         myStonks={this.state.myStonks}
         handleClick={this.handleClick}
+        handleType={this.handleType}
         />
       </div>
     );
