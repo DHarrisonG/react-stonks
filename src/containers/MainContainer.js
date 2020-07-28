@@ -8,7 +8,7 @@ class MainContainer extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar handleType={this.props.handleType}/>
 
         <div className="row">
           <div className="col-8">
